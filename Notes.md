@@ -640,3 +640,85 @@ In this example, the state is an object, and when updating either `firstName` or
 The `useState` hook is one of the most powerful and frequently used hooks in React. It allows you to easily manage state inside functional components without the complexity of class-based components. With `useState`, you can add interactivity to your components, update the UI in response to user input, and manage more complex data structures like arrays and objects.
 
 Hooks, like `useState`, have transformed how developers build and manage React applications, making functional components more capable and easier to use.
+
+<br/>
+<br/>
+<br/>
+
+# 05bgChanger
+
+Certainly! Here’s your complete code example, along with the explanation for each part:
+
+```javascript
+import { useState } from "react";
+
+function App() {
+  // Initialize color state with "olive" as the default background color
+  const [color, setColor] = useState("olive");
+
+  return (
+    <div 
+      className="w-full h-screen duration-200" 
+      style={{ backgroundColor: color }} // Set the background color dynamically
+    >
+      <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
+        <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
+          {/* Button for Red color */}
+          <button
+            onClick={() => setColor("red")}
+            className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
+            style={{ backgroundColor: "red" }}
+          >
+            Red
+          </button>
+
+          {/* Button for Green color */}
+          <button
+            onClick={() => setColor("green")}
+            className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
+            style={{ backgroundColor: "green" }}
+          >
+            Green
+          </button>
+
+          {/* Button for Blue color */}
+          <button
+            onClick={() => setColor("blue")}
+            className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
+            style={{ backgroundColor: "blue" }}
+          >
+            Blue
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Explanation of How This Component Works
+
+1. **`useState` Hook for Color State**:
+   - Initializes a `color` state variable with `"olive"` as the default value.
+   - `setColor` is the function to update this state.
+
+2. **Background Color Binding**:
+   - The main `div` element uses `backgroundColor: color` in the `style` attribute, dynamically updating the background color based on the `color` state.
+
+3. **Button Elements**:
+   - Each button has an `onClick` event handler that calls `setColor` with a different color value (`"red"`, `"green"`, `"blue"`), changing the state and updating the background color.
+   - Each button has an inline `backgroundColor` style matching its intended color to visually represent its function.
+
+4. **Styling with TailwindCSS**:
+   - Tailwind CSS classes such as `w-full h-screen duration-200` give the main `div` full-screen dimensions with smooth transitions.
+   - Positioning and styling classes like `fixed bottom-12 inset-x-0`, `shadow-lg bg-white`, and `rounded-3xl` style the button container at the bottom of the screen with a floating, rounded design.
+   - Button styling classes `outline-none rounded-full text-white shadow-lg` ensure each button has distinct styling.
+
+---
+
+### How to Use This Code
+1. Ensure you have **Tailwind CSS** set up in your project as this code uses Tailwind classes.
+2. Run the project using `npm start` (for Create React App) or `vite` (if using Vite as the bundler).
+3. **Interact with the UI**: Clicking a color button will change the background color of the main `div` to match the color selected.
